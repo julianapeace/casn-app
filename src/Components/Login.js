@@ -1,7 +1,14 @@
 import React, {Component} from "react";
+import google_oauth_client_id from "../settings.js";
+import { GoogleLogin } from 'react-google-login';
 
-export default function Login(props) {
+const responseGoogle = (response) => {
+  console.log(response);
+}
 
+console.log(google_oauth_client_id)
+
+class Login extends React.Component {
   render () {
     return (
       <div>
@@ -17,16 +24,4 @@ export default function Login(props) {
 
 }
 
-var styles = StyleSheet.create({
-  header: {
-
-    // remove width and height to override fixed static size
-    height: 140,
-    width: "100%",
-    justifyContent: "space-around",
-    alignItems: "center",
-    backgroundColor: "#021227"
-
-    }
-  })
-;
+export default Login;
