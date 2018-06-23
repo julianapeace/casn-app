@@ -11,6 +11,8 @@ import './App.css';
 import RaisedButton from 'material-ui/RaisedButton';
 import AppBar from 'material-ui/AppBar';
 
+//Other Stuff
+import { GoogleLogin } from 'react-google-login';
 const axios = require('axios')
 
 const theme = getMuiTheme({
@@ -36,6 +38,9 @@ const theme = getMuiTheme({
   }
 });
 
+const responseGoogle = (response) => {
+  console.log(response);
+}
 
 class App extends Component {
 
@@ -49,7 +54,6 @@ class App extends Component {
       console.log(error)
     })
 }
-
 
   render() {
     return (
@@ -65,6 +69,12 @@ class App extends Component {
           </p>
           <RaisedButton label="Driver" onClick= {() => this.test_api()} primary={true} style={{marginRight:3, height:100, width: 150}}/>
           <RaisedButton label="Dispatcher" primary={false} style={{marginRight:3, height:100, width: 150}}/>
+          <GoogleLogin
+            clientId="330346076577-m3e4og8jcsenharj4vqaqfkhk19il76q.apps.googleusercontent.com"
+            buttonText="Login"
+            onSuccess={responseGoogle}
+            onFailure={responseGoogle}
+          />
         </div>
       </MuiThemeProvider>
 
