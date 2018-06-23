@@ -1,12 +1,39 @@
-// Mui Theme
-import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
+// import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import {purple700, cyan500, purple500, purple100, darkPurpleA200, white, darkBlack, fullBlack, grey300} from 'material-ui/styles/colors';
+
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+
+// Material Components
 import RaisedButton from 'material-ui/RaisedButton';
+import AppBar from 'material-ui/AppBar';
+
 const axios = require('axios')
+
+const theme = getMuiTheme({
+  fontFamily:'Roboto, Titillium Web, sans-serif',
+  palette: {
+    textColor: cyan500,
+    primary1Color: purple700,
+    primary2Color: purple500,
+    primary3Color: purple100,
+    accent1Color: darkPurpleA200,
+
+    alternateTextColor: white,
+    canvasColor: white,
+    borderColor: grey300,
+    // disabledColor: fade(darkBlack, 0.3),
+    pickerHeaderColor: cyan500,
+    // clockCircleColor: fade(darkBlack, 0.07),
+    shadowColor: fullBlack,
+  appBar: {
+    height: 50,
+  }
+  }
+});
 
 
 class App extends Component {
@@ -25,7 +52,8 @@ class App extends Component {
 
   render() {
     return (
-      <MuiThemeProvider>
+      <MuiThemeProvider muiTheme={theme}>
+        <AppBar title="CASN"/>
         <div className="App">
           <header className="App-header">
             <img src={logo} className="App-logo" alt="logo" />
