@@ -3,8 +3,11 @@ import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import React, { Component } from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import logo from './logo.svg';
 import './App.css';
+import DriverContainer from './driver/DriverContainer';
+import Test from './components/Test';
 import RaisedButton from 'material-ui/RaisedButton';
 const axios = require('axios')
 
@@ -36,6 +39,26 @@ class App extends Component {
           </p>
           <RaisedButton label="Get Top Stories" onClick= {() => this.test_api()} primary={true}/>
         </div>
+        <BrowserRouter>
+          <Switch>
+            {/* <Route 
+              path="/"
+              exact
+              component={}
+            /> */}
+            <Route 
+              path="/login"
+              component={Test}
+            />
+            <Route 
+              path="/driver"
+              component={DriverContainer}
+            />
+            {/* <Route 
+              path="/dispatcher"
+            /> */}
+          </Switch>
+        </BrowserRouter>
       </MuiThemeProvider>
 
     );
