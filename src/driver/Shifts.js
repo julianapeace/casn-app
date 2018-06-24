@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { Switch, Route } from 'react-router-dom';
 import './Shifts.css';
-import GoogleMaps from '../Components/Test';
+import GoogleMaps from '../Components/Map';
+import Test from '../Components/Test';
 
 import RaisedButton from 'material-ui/RaisedButton';
 import Paper from 'material-ui/Paper';
@@ -87,10 +88,15 @@ class Shifts extends Component {
                     <Switch>
                         <Route
                             path={`${this.props.match.path}/list`}
+                            render={() => {
+                                return (<Test mountCallback={() => this.setSubRoute('list')} />);
+                            }}
                         />
                         <Route
                             path={`${this.props.match.path}/map`}
-                            component={GoogleMaps}
+                            render={() => {
+                                return (<GoogleMaps mountCallback={() => this.setSubRoute('map')} />);
+                            }}
                         />
                     </Switch>
                 </div>
