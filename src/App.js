@@ -4,10 +4,11 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import {purple700, cyan500, purple500, purple100, darkPurpleA200, white, darkBlack, fullBlack, grey300} from 'material-ui/styles/colors';
 
 import React, { Component } from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import logo from './logo.svg';
 import './App.css';
-
-// Material Components
+import DriverContainer from './driver/DriverContainer';
+import Test from './Components/Test';
 import RaisedButton from 'material-ui/RaisedButton';
 import AppBar from 'material-ui/AppBar';
 
@@ -76,6 +77,26 @@ class App extends Component {
             onFailure={responseGoogle}
           />
         </div>
+        <BrowserRouter>
+          <Switch>
+            {/* <Route 
+              path="/"
+              exact
+              component={}
+            /> */}
+            <Route 
+              path="/login"
+              component={Test}
+            />
+            <Route 
+              path="/driver"
+              component={DriverContainer}
+            />
+            {/* <Route 
+              path="/dispatcher"
+            /> */}
+          </Switch>
+        </BrowserRouter>
       </MuiThemeProvider>
 
     );
