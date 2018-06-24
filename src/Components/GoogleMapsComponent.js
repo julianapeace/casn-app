@@ -12,8 +12,17 @@ export default class GoogleMaps extends Component {
     zoom: 11
   }
 render() {
+  const style = {
+    image: {
+      // width: 200,
+      height:50,
+      paddingLeft:20,
+      resizeMode: 'cover'
+  }
+}
     return (
       <div style={{ height: '100vh', width: '100%' }}>
+        <img style={style.image} src="https://i.imgur.com/wUjbCNr.png"/>
         <GoogleMapReact
           bootstrapURLKeys={{ key: GOOGLE_API_KEY}}
           defaultCenter={ this.props.center }

@@ -3,8 +3,8 @@ import { Switch, Route } from 'react-router-dom';
 import ShiftsSelection from './ShiftsSelection';
 import Shifts from './Shifts';
 import Test from '../Components/Test';
-// import GoogleMaps from '../Components/Map';
 import GoogleMaps from '../Components/GoogleMapsComponent';
+import ListShifts from '../Components/ListShifts';
 import AvailableShiftsContainer from '../Components/AvailableShiftsContainer';
 
 class DriverContainer extends Component {

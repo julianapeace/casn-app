@@ -45,7 +45,7 @@ class ShiftsSelection extends Component {
             </div>
             <div style={style.button}>
                 <RaisedButton
-                    label="Schedule A Ride"
+                    label="Available Rides"
                     onClick={() => this.routeTo('driver/available-shifts/list')}
                     primary={true}
                     style={{marginRight:3, height:100, width: 200}}
