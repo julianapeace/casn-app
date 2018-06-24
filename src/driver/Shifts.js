@@ -62,7 +62,7 @@ class Shifts extends Component {
                 </div>
                 <RaisedButton 
                     label="Back" 
-                    onClick={() => this.routeTo('')} 
+                    onClick={() => this.props.history.push('/driver')} 
                     style={{marginRight:3, height:75, width: 100}}
                 />
             </div>

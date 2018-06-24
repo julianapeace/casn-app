@@ -72,26 +72,6 @@ class App extends Component {
           </Switch>
         </BrowserRouter>
         </div>
-        <BrowserRouter>
-          <Switch>
-            {/* <Route 
-              path="/"
-              exact
-              component={}
-            /> */}
-            <Route 
-              path="/login"
-              component={Test}
-            />
-            <Route 
-              path="/driver"
-              component={DriverContainer}
-            />
-            {/* <Route 
-              path="/dispatcher"
-            /> */}
-          </Switch>
-        </BrowserRouter>
       </MuiThemeProvider>
 
     );
