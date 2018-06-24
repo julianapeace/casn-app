@@ -1,0 +1,18 @@
+.shifts-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.shifts-wrapper .buttons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+/* Style map and list wrapper div */
+.shifts-wrapper .content {
+}

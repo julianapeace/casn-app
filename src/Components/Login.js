@@ -1,32 +1,38 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
+import './Login.css';
 
-export default function Login(props) {
+import RaisedButton from 'material-ui/RaisedButton';
+
+
+
+class Login extends Component {
+  routeTo(stub) {
+    this.props.history.push(`/${stub}`);
+  }
 
   render () {
     return (
-      <div>
-        <GoogleLogin
-          clientId="330346076577-m3e4og8jcsenharj4vqaqfkhk19il76q.apps.googleusercontent.com"
-          buttonText="Login"
-          onSuccess={responseGoogle}
-          onFailure={responseGoogle}
-        />
+      <div className='login-wrapper'>
+        <p>Please select one:</p>
+        <div className='login-body'>
+            <RaisedButton 
+              label="Driver" 
+              onClick={() => this.routeTo('driver')} 
+              primary={true} 
+              style={{marginRight:3, height:150, width: 200}}
+            />
+            <RaisedButton 
+              label="Dispatcher" 
+              onClick={() => this.routeTo('dispatcher')} 
+              primary={true} 
+              style={{marginRight:3, height:150, width: 200}}
+            />
+        </div>
       </div>
+     
     );
   }
 
 }
 
-var styles = StyleSheet.create({
-  header: {
-
-    // remove width and height to override fixed static size
-    height: 140,
-    width: "100%",
-    justifyContent: "space-around",
-    alignItems: "center",
-    backgroundColor: "#021227"
-
-    }
-  })
-;
+export default Login;
