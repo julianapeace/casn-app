@@ -3,6 +3,8 @@ import { Switch, Route } from 'react-router-dom';
 import './Shifts.css';
 
 import RaisedButton from 'material-ui/RaisedButton';
+import Paper from 'material-ui/Paper';
+import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 
 class Shifts extends Component {
     state = {
@@ -33,39 +35,71 @@ class Shifts extends Component {
     }
 
     render() {
+      const style = {
+        card: {
+          maxWidth: "600px",
+          margin: "0 auto",
+          textAlign: "center",
+          paddingTop: "20px"
+        },
+        header: {
+          margin: "0",
+          padding: "0"
+        },
+        subheader:{
+          textAlign: "left",
+          paddingLeft: "20px"
+        },
+        tagline: {
+          padding: "10px 50px",
+          lineHeight: "1.5em",
+          background: "rgba(0, 0, 0, .05)"
+        },
+        button: {
+          padding: "20px"
+        }
+      }
         return (
-            <div className='shifts-wrapper'>
-                <div className='buttons'>
-                <RaisedButton 
-                    label="List" 
-                    onClick={() => this.routeTo('list')} 
-                    primary={this.matchRoute('list')} 
-                    style={{marginRight:3, height:75, width: 150}}
+          <div>
+          <img src="https://i.imgur.com/wUjbCNr.png"/>
+          <Card style={style.card} zDepth={2}>
+                  <div>
+                    <h4 style={style.subheader}> Schedule A Ride</h4>
+                  </div>
+                <div style={style.button}>
+                <RaisedButton
+                    label="List"
+                    onClick={() => this.routeTo('list')}
+                    primary={this.matchRoute('list')}
+                    style={{marginRight:3, height:100, width: 200}}
                 />
-                <RaisedButton 
-                    label="Map*" 
-                    onClick={() => this.routeTo('map')} 
-                    primary={this.matchRoute('map')} 
-                    style={{marginRight:3, height:75, width: 150}}
+              </div>
+                <div style={style.button}>
+                <RaisedButton
+                    label="Map*"
+                    onClick={() => this.routeTo('map')}
+                    primary={this.matchRoute('map')}
+                    style={{marginRight:3, height:100, width: 200}}
                 />
                 </div>
                 <div className='content'>
-                    //TODO: Build out map and list components
                     <Switch>
-                        <Route 
+                        <Route
                             path={`${this.props.match.path}/list`}
                         />
-                        <Route 
+                        <Route
                             path={`${this.props.match.path}/map`}
                         />
                     </Switch>
                 </div>
-                <RaisedButton 
-                    label="Back" 
-                    onClick={() => this.props.history.push('/driver')} 
+                <RaisedButton
+                    label="Back"
+                    onClick={() => this.props.history.push('/driver')}
                     style={{marginRight:3, height:75, width: 100}}
                 />
-            </div>
+
+          </Card>
+        </div>
         );
     }
 }
