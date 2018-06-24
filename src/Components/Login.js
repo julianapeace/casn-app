@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import './Login.css';
-
 import RaisedButton from 'material-ui/RaisedButton';
+// import google_oauth_client_id from "../settings.js";
+import { GoogleLogin } from 'react-google-login';
 
 
 
@@ -15,21 +16,21 @@ class Login extends Component {
       <div className='login-wrapper'>
         <p>Please select one:</p>
         <div className='login-body'>
-            <RaisedButton 
-              label="Driver" 
-              onClick={() => this.routeTo('driver')} 
-              primary={true} 
+            <RaisedButton
+              label="Driver"
+              onClick={() => this.routeTo('driver')}
+              primary={true}
               style={{marginRight:3, height:150, width: 200}}
             />
-            <RaisedButton 
-              label="Dispatcher" 
-              onClick={() => this.routeTo('dispatcher')} 
-              primary={true} 
+            <RaisedButton
+              label="Dispatcher"
+              onClick={() => this.routeTo('dispatcher')}
+              primary={true}
               style={{marginRight:3, height:150, width: 200}}
             />
         </div>
       </div>
-     
+
     );
   }
 

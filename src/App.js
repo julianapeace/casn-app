@@ -11,6 +11,9 @@ import './App.css';
 import DriverContainer from './driver/DriverContainer';
 import Login from './Components/Login';
 import AppBar from 'material-ui/AppBar';
+import Paper from 'material-ui/Paper';
+import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
+
 
 //Other Stuff
 const axios = require('axios');
@@ -31,10 +34,6 @@ const theme = getMuiTheme({
     pickerHeaderColor: cyan500,
     // clockCircleColor: fade(darkBlack, 0.07),
     shadowColor: fullBlack,
-  appBar: {
-    height: 150,
-    color: cyan500,
-  }
   }
 });
 
@@ -52,26 +51,64 @@ class App extends Component {
 }
 
   render() {
+    const style = {
+      card: {
+        maxWidth: "600px",
+        margin: "0 auto",
+        textAlign: "center",
+        paddingTop: "20px"
+      },
+      header: {
+        margin: "0",
+        padding: "0"
+      },
+      tagline: {
+        padding: "10px 50px",
+        lineHeight: "1.5em",
+        background: "rgba(0, 0, 0, .05)"
+      },
+      button: {
+        padding: "20px"
+      }
+    }
+    // <div className="App">
+    //   <header className="App-header">
+    //     <img src={logo} className="App-logo" alt="logo" />
+    //     <h1 className="App-title">Welcome to React</h1>
+    //   </header>
+    // </div>
+
     return (
       <MuiThemeProvider muiTheme={theme}>
-        <AppBar title={<img src="https://i.imgur.com/wUjbCNr.png"/>}/>
-        <div className='app-body'>
-          {/* <RaisedButton label="Driver" onClick= {() => this.test_api()} primary={true} style={{marginRight:3, height:100, width: 150}}/>
-          <RaisedButton label="Dispatcher" primary={false} style={{marginRight:3, height:100, width: 150}}/> */}
         <BrowserRouter>
           <Switch>
-            <Route 
+            <Route
               path="/"
               exact
               component={Login}
             />
-            <Route 
+            <Route
               path="/driver"
               component={DriverContainer}
             />
           </Switch>
         </BrowserRouter>
-        </div>
+        <img src="https://i.imgur.com/wUjbCNr.png"/>
+        <Card style={style.card} zDepth={2}>
+          <div>
+            <h1 style={style.header}>Please Select One:</h1>
+          </div>
+          <div style={style.button}>
+            <RaisedButton label="Driver" onClick= {() => this.test_api()} primary={true} style={{marginRight:3, height:100, width: 150}}/>
+          </div>
+          <RaisedButton label="Dispatcher" secondary={true} style={{marginRight:3, height:100, width: 150}}/>
+          <div style={style.tagline}>
+            <p>
+              Need help?
+              {/* <RaisedButton secondary={true} label="Get Started" onClick={this.getStarted}/> */}
+            </p>
+          </div>
+        </Card>
       </MuiThemeProvider>
 
     );
