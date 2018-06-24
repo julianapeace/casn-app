@@ -14,6 +14,10 @@ class GoogleMaps extends Component {
   }
 }
 
+  componentDidMount() {
+    this.props.mountCallback();
+  }
+
   test_api(){
     axios.get('https://jsonplaceholder.typicode.com/posts/1')
     .then (res => {
