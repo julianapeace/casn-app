@@ -7,9 +7,12 @@ const axios = require('axios');
 const Promise = require('bluebird')
 
 class GoogleMaps extends Component {
-  state = {
-      zipCodes: null
+  constructor(props) {
+  super(props);
+  this.state = {
+    zipCodes: null
   }
+}
 
   test_api(){
     axios.get('https://jsonplaceholder.typicode.com/posts/1')
@@ -20,12 +23,6 @@ class GoogleMaps extends Component {
     .catch(error => {
       console.log(error)
     })
-}
-print_zip(){
-  var zipCodes = "[1,2,3,4]"
-  this.setState({
-    zipCodes : zipCodes
-  })
 }
 
 promisify(zipCodes){
@@ -41,6 +38,30 @@ promisify(zipCodes){
   }
   // console.log('created promises')
   return promises
+}
+
+get_coords(response){
+  var coord = []
+  response.forEach((response) => {
+    var latitude = response.data.results[0].geometry.location.lng;
+    var longitude = response.data.results[0].geometry.location.lng;
+    coord.push({latitude,longitude})
+  })
+  console.log("Coordinates: ", coord)
+  return coord
+}
+
+print_zip(){
+  var zipCodes = [77006, 77001]
+  this.setState({
+    zipCodes : zipCodes
+  }, () => {
+    let promises = this.promisify(this.state.zipCodes)
+    Promise.all(promises)
+      .then(response =>{
+        this.get_coords(response)
+      })
+    })
 }
 
   render() {
