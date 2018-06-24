@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Switch, Route } from 'react-router-dom';
 import './Shifts.css';
+import GoogleMaps from '../Components/Test';
 
 import RaisedButton from 'material-ui/RaisedButton';
 import Paper from 'material-ui/Paper';
@@ -89,6 +90,7 @@ class Shifts extends Component {
                         />
                         <Route
                             path={`${this.props.match.path}/map`}
+                            component={GoogleMaps}
                         />
                     </Switch>
                 </div>

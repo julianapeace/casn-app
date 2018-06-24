@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from "react";
 
 const Test = () => {
     return (
@@ -6,7 +6,7 @@ const Test = () => {
             Test
         </div>
     );
-        
+
 }
 
 export default Test;

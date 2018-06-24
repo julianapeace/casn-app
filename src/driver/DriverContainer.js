@@ -3,6 +3,8 @@ import { Switch, Route } from 'react-router-dom';
 import ShiftsSelection from './ShiftsSelection';
 import Shifts from './Shifts';
 import Test from '../Components/Test';
+import GoogleMaps from '../Components/Map';
+import AvailableShiftsContainer from '../Components/AvailableShiftsContainer';
 
 class DriverContainer extends Component {
     render() {
@@ -15,7 +17,7 @@ class DriverContainer extends Component {
                 />
                 <Route
                     path={`${this.props.match.path}/available-shifts`}
-                    component={Shifts}
+                    component={GoogleMaps}
                 />
                 <Route
                     path={`${this.props.match.path}/my-shifts`}
