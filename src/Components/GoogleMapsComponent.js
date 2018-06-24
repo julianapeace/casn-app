@@ -4,11 +4,11 @@ import {GOOGLE_API_KEY} from "../settings.js";
 
 import GoogleMapReact from 'google-map-react';
 
-const AnyReactComponent = ({ text }) => <div>{ text }</div>;
+const AnyReactComponent = ({ text }) =><div><img src="https://i.imgur.com/JcEUU8e.png"/></div>;
 
 export default class GoogleMaps extends Component {
   static defaultProps = {
-    center: { lat: 40.7446790, lng: -73.9485420 },
+    center: { lat: 29.7604 , lng: -95.3698 },
     zoom: 11
   }
 render() {
@@ -19,9 +19,14 @@ render() {
           defaultCenter={ this.props.center }
           defaultZoom={ this.props.zoom }>
           <AnyReactComponent
-            lat={ 40.7473310 }
-            lng={ -73.8517440 }
+            lat={ 29.7604 }
+            lng={ -95.3698 }
             text={ "Where's Waldo?" }
+          />
+          <AnyReactComponent
+            lat={ 29.7704 }
+            lng={ -95.4098 }
+            text={ "NOT WALDO?" }
           />
         </GoogleMapReact>
       </div>
