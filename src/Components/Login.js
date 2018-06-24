@@ -1,24 +1,35 @@
-import React, {Component} from "react";
-import google_oauth_client_id from "../settings.js";
-import { GoogleLogin } from 'react-google-login';
+import React, { Component } from "react";
+import './Login.css';
 
-const responseGoogle = (response) => {
-  console.log(response);
-}
+import RaisedButton from 'material-ui/RaisedButton';
 
-console.log(google_oauth_client_id)
 
-class Login extends React.Component {
+
+class Login extends Component {
+  routeTo(stub) {
+    this.props.history.push(`/${stub}`);
+  }
+
   render () {
     return (
-      <div>
-        <GoogleLogin
-          clientId="330346076577-m3e4og8jcsenharj4vqaqfkhk19il76q.apps.googleusercontent.com"
-          buttonText="Login"
-          onSuccess={responseGoogle}
-          onFailure={responseGoogle}
-        />
+      <div className='login-wrapper'>
+        <p>Please select one:</p>
+        <div className='login-body'>
+            <RaisedButton 
+              label="Driver" 
+              onClick={() => this.routeTo('driver')} 
+              primary={true} 
+              style={{marginRight:3, height:150, width: 200}}
+            />
+            <RaisedButton 
+              label="Dispatcher" 
+              onClick={() => this.routeTo('dispatcher')} 
+              primary={true} 
+              style={{marginRight:3, height:150, width: 200}}
+            />
+        </div>
       </div>
+     
     );
   }
 

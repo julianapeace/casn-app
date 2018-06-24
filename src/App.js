@@ -5,18 +5,14 @@ import {purple700, cyan500, purple500, purple100, darkPurpleA200, white, darkBla
 
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import logo from './logo.svg';
 import './App.css';
 
 // Material Components
 import DriverContainer from './driver/DriverContainer';
-import Test from './Components/Test';
-import RaisedButton from 'material-ui/RaisedButton';
+import Login from './Components/Login';
 import AppBar from 'material-ui/AppBar';
 
 //Other Stuff
-import { GoogleLogin } from 'react-google-login';
-import Login from './Components/Login';
 const axios = require('axios');
 
 const theme = getMuiTheme({
@@ -59,38 +55,23 @@ class App extends Component {
     return (
       <MuiThemeProvider muiTheme={theme}>
         <AppBar title={<img src="https://i.imgur.com/wUjbCNr.png"/>}/>
-        <div className="App">
-          <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <h1 className="App-title">Welcome to React</h1>
-          </header>
-          <p className="App-intro">
-            To get started, edit <code>src/App.js</code> and save to reload.
-          </p>
-          <RaisedButton label="Driver" onClick= {() => this.test_api()} primary={true} style={{marginRight:3, height:100, width: 150}}/>
-          <RaisedButton label="Dispatcher" primary={false} style={{marginRight:3, height:100, width: 150}}/>
-          <Login />
-        </div>
+        <div className='app-body'>
+          {/* <RaisedButton label="Driver" onClick= {() => this.test_api()} primary={true} style={{marginRight:3, height:100, width: 150}}/>
+          <RaisedButton label="Dispatcher" primary={false} style={{marginRight:3, height:100, width: 150}}/> */}
         <BrowserRouter>
           <Switch>
-            {/* <Route 
+            <Route 
               path="/"
               exact
-              component={}
-            /> */}
-            <Route 
-              path="/login"
-              component={Test}
+              component={Login}
             />
             <Route 
               path="/driver"
               component={DriverContainer}
             />
-            {/* <Route 
-              path="/dispatcher"
-            /> */}
           </Switch>
         </BrowserRouter>
+        </div>
       </MuiThemeProvider>
 
     );
