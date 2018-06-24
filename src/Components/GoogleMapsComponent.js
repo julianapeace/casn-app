@@ -13,8 +13,9 @@ export default class GoogleMaps extends Component {
   }
 render() {
     return (
-      <div className='google-map'>
+      <div style={{ height: '100vh', width: '100%' }}>
         <GoogleMapReact
+          bootstrapURLKeys={{ key: GOOGLE_API_KEY}}
           defaultCenter={ this.props.center }
           defaultZoom={ this.props.zoom }>
           <AnyReactComponent

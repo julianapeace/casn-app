@@ -18,7 +18,7 @@ class DriverContainer extends Component {
                 />
                 <Route
                     path={`${this.props.match.path}/available-shifts`}
-                    component={Shifts}
+                    component={GoogleMaps}
                 />
                 <Route
                     path={`${this.props.match.path}/my-shifts`}
