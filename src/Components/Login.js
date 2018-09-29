@@ -32,6 +32,9 @@ class Login extends Component {
       },
       button: {
         padding: "20px"
+      },
+      button2: {
+        paddingBottom: "20px"
       }
     }
 
@@ -49,11 +52,13 @@ class Login extends Component {
                 primary={true}
                 style={{marginRight:3, height:100, width: 150}}/>
             </div>
+            <div style={style.button2}>
             <RaisedButton
               label="Dispatcher"
               onClick={() => this.routeTo('dispatcher')}
               secondary={true}
               style={{marginRight:3, height:100, width: 150}}/>
+              </div>
             <div style={style.tagline}>
               <p>
                 Need help?
